@@ -45,40 +45,7 @@ html {
 }
 
 /* ==================== BACKGROUND ==================== */
-/* FIXED: pakai div wrapper bukan body::after → lebih kompatibel */
-.bg-layer {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    /* Fallback solid kalau gambar gagal */
-    background: #050505;
-}
-
-/* Gradient overlay */
-.bg-layer::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.02) 0%, transparent 40%);
-}
-
-/* Background image via JS (graceful fallback kalau gagal) */
-.bg-layer .bg-img {
-    position: absolute;
-    inset: 0;
-    background-image: url('https://raw.githubusercontent.com/2026-labs/mylast1dollar/refs/heads/main/images/photo_2026-05-07_15-32-03.jpg');
-    background-size: cover;
-    background-position: center;
-    opacity: 0.08;
-    filter: grayscale(1) blur(0px);
-    /* FIXED: transform biar GPU-accelerated */
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    will-change: opacity;
-}
+/* Pure black, no image */
 
 /* ==================== CONTAINER ==================== */
 .container {
@@ -481,10 +448,6 @@ h1 {
 </head>
 <body>
 
-<!-- FIXED: background layer sebagai div terpisah, bukan CSS pseudo element di body -->
-<div class="bg-layer" aria-hidden="true">
-    <div class="bg-img"></div>
-</div>
 
 <div class="container">
 
@@ -655,27 +618,8 @@ h1 {
     © 2026 mylast1dollars.xyz — born from dust.
 </footer>
 
-<!-- FIXED: Script graceful fallback kalau Unsplash gagal load -->
-<script>
-    (function() {
-        var bgImg = document.querySelector('.bg-img');
-        if (!bgImg) return;
 
-        var img = new Image();
-        img.onload = function() {
-            bgImg.style.opacity = '0.08';
-        };
-        img.onerror = function() {
-            // Kalau gambar gagal, fallback ke gradient saja — tidak blank
-            bgImg.style.display = 'none';
-        };
-        img.src = 'https://raw.githubusercontent.com/2026-labs/mylast1dollar/refs/heads/main/images/photo_2026-05-07_15-32-03.jpg';
 
-        // Set opacity awal 0 dulu
-        bgImg.style.opacity = '0';
-        bgImg.style.transition = 'opacity 1s ease';
-    })();
-</script>
 
 </body>
 </html>
