@@ -3,428 +3,302 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
-<meta name="theme-color" content="#050505"/>
-<meta name="apple-mobile-web-app-capable" content="yes"/>
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-
+<meta name="theme-color" content="#000000"/>
 <title>mylast1dollars.xyz</title>
-
-<!-- Preconnect dulu biar lebih cepat -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
 
 <style>
 
-/* ==================== RESET ==================== */
-*, *::before, *::after {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ==================== BASE ==================== */
 html {
     scroll-behavior: smooth;
-    height: 100%;
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
+    overflow-x: hidden;
 }
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: #050505;
-    color: white;
-    min-height: 100%;
-    /* FIXED: overflow-x hidden di html saja, bukan body → cegah iOS blank */
-    position: relative;
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
 }
 
-html {
-    overflow-x: hidden;
-}
-
-/* ==================== BACKGROUND ==================== */
-/* Pure black, no image */
-
-/* ==================== CONTAINER ==================== */
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 20px;
-    /* FIXED: pastikan konten selalu di atas bg */
-    position: relative;
-    z-index: 1;
+    padding: 0 20px;
 }
 
-/* ==================== NAV ==================== */
+/* ===== NAV ===== */
 .nav {
-    display: -webkit-flex;
     display: flex;
-    -webkit-justify-content: space-between;
     justify-content: space-between;
-    -webkit-align-items: center;
     align-items: center;
-    gap: 15px;
-    padding: 10px 0;
-    -webkit-flex-wrap: wrap;
+    padding: 20px 0;
     flex-wrap: wrap;
+    gap: 12px;
 }
 
 .logo {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 900;
     letter-spacing: 1px;
 }
 
 .nav-right {
-    display: -webkit-flex;
     display: flex;
     gap: 10px;
-    -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
 }
 
 .nav-btn {
-    padding: 10px 16px;
-    border-radius: 14px;
-    border: 1px solid rgba(255,255,255,0.12);
-    background: rgba(255,255,255,0.05);
-    color: white;
+    padding: 9px 16px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    background: #111;
+    color: #fff;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     font-family: inherit;
     cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
-    /* FIXED: webkit backdrop-filter untuk Safari */
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    transition: background 0.2s, border-color 0.2s;
 }
 
 .nav-btn:hover {
-    background: rgba(255,255,255,0.1);
-    -webkit-transform: translateY(-2px);
-    transform: translateY(-2px);
+    background: #222;
+    border-color: #555;
 }
 
-/* ==================== HERO ==================== */
+/* ===== HERO ===== */
 .hero {
-    min-height: 90vh;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-justify-content: center;
-    justify-content: center;
+    padding: 60px 0 80px;
     text-align: center;
-    position: relative;
-    padding: 40px 0;
-}
-
-.glow {
-    position: absolute;
-    width: 320px;
-    height: 320px;
-    background: white;
-    /* FIXED: kurangi blur size untuk performa mobile */
-    filter: blur(100px);
-    opacity: 0.03;
-    border-radius: 50%;
-    top: -80px;
-    right: -80px;
-    pointer-events: none;
-    /* GPU layer */
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-}
-
-.hero-card {
-    width: 100%;
-    padding: 28px;
-    border-radius: 28px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    /* FIXED: vendor prefix untuk Safari */
-    -webkit-backdrop-filter: blur(18px);
-    backdrop-filter: blur(18px);
-    box-shadow: 0 0 50px rgba(255,255,255,0.04);
-}
-
-/* FIXED: Safari fallback kalau backdrop-filter tidak support */
-@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
-    .hero-card {
-        background: rgba(20,20,20,0.95);
-    }
 }
 
 .badge {
     display: inline-block;
-    padding: 8px 14px;
+    padding: 7px 14px;
     border-radius: 999px;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.12);
+    background: #111;
+    border: 1px solid #333;
     font-size: 12px;
-    margin-bottom: 20px;
-    color: #d6d6d6;
+    color: #aaa;
+    margin-bottom: 24px;
 }
 
 h1 {
-    font-size: 64px;
+    font-size: 72px;
     line-height: 0.95;
     font-weight: 900;
-    margin-bottom: 24px;
     letter-spacing: -3px;
-    /* FIXED: wordbreak untuk layar kecil */
+    color: #fff;
+    margin-bottom: 28px;
     word-break: break-word;
-    overflow-wrap: break-word;
 }
 
 .desc {
-    max-width: 760px;
-    margin: 0 auto;
-    font-size: 17px;
+    max-width: 680px;
+    margin: 0 auto 36px;
+    font-size: 16px;
     line-height: 1.8;
-    color: #c7c7c7;
+    color: #bbb;
 }
 
 .highlight {
-    color: white;
+    color: #fff;
     font-weight: 700;
 }
 
-/* ==================== CTA ==================== */
+/* ===== BUTTONS ===== */
 .cta {
-    margin-top: 35px;
-    display: -webkit-flex;
     display: flex;
-    -webkit-justify-content: center;
     justify-content: center;
-    -webkit-align-items: center;
-    align-items: center;
-    gap: 14px;
-    -webkit-flex-wrap: wrap;
+    gap: 12px;
     flex-wrap: wrap;
-    width: 100%;
+    margin-bottom: 60px;
 }
 
-.buy-btn,
-.secondary-btn {
-    -webkit-flex: 1 1 220px;
-    flex: 1 1 220px;
-    min-height: 56px;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    text-align: center;
-    padding: 16px 20px;
-    border-radius: 18px;
-    text-decoration: none;
+.btn-primary {
+    padding: 15px 32px;
+    border-radius: 14px;
+    background: #fff;
+    color: #000;
     font-weight: 800;
+    font-size: 15px;
     font-family: inherit;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
     cursor: pointer;
-    transition: background 0.25s, transform 0.25s;
-    /* FIXED: tap highlight transparent */
+    transition: opacity 0.2s, transform 0.2s;
     -webkit-tap-highlight-color: transparent;
-    -webkit-user-select: none;
-    user-select: none;
-    /* FIXED: outline untuk aksesibilitas */
-    outline-offset: 3px;
 }
 
-.buy-btn {
-    background: white;
-    color: black;
-    border: none;
-}
-
-.buy-btn:hover,
-.buy-btn:focus-visible {
-    -webkit-transform: translateY(-2px) scale(1.02);
-    transform: translateY(-2px) scale(1.02);
-    outline: 2px solid rgba(255,255,255,0.5);
-}
-
-.secondary-btn {
-    color: white;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.12);
-    /* FIXED: vendor prefix */
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-}
-
-.secondary-btn:hover,
-.secondary-btn:focus-visible {
-    background: rgba(255,255,255,0.12);
-    -webkit-transform: translateY(-2px);
+.btn-primary:hover {
+    opacity: 0.88;
     transform: translateY(-2px);
-    outline: 2px solid rgba(255,255,255,0.3);
 }
 
-/* ==================== STATS ==================== */
+.btn-secondary {
+    padding: 15px 24px;
+    border-radius: 14px;
+    background: #111;
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    font-family: inherit;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #333;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.btn-secondary:hover {
+    background: #1a1a1a;
+    border-color: #555;
+    transform: translateY(-2px);
+}
+
+/* ===== STATS ===== */
 .stats {
-    margin-top: 60px;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 14px;
+    margin-bottom: 80px;
 }
 
 .stat {
-    -webkit-flex: 1 1 140px;
-    flex: 1 1 140px;
-    padding: 22px;
-    border-radius: 22px;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
+    padding: 24px;
+    border-radius: 18px;
+    background: #0d0d0d;
+    border: 1px solid #222;
+    text-align: center;
 }
 
 .stat h2 {
-    font-size: 28px;
+    font-size: 32px;
+    font-weight: 900;
+    color: #fff;
     margin-bottom: 6px;
 }
 
 .stat p {
-    color: #aaaaaa;
-    font-size: 14px;
+    font-size: 13px;
+    color: #666;
 }
 
-/* ==================== SECTION ==================== */
+/* ===== DIVIDER ===== */
+hr {
+    border: none;
+    border-top: 1px solid #1a1a1a;
+    margin-bottom: 80px;
+}
+
+/* ===== SECTION ===== */
 .section {
-    padding: 70px 0;
-    position: relative;
-    z-index: 1;
+    padding-bottom: 80px;
 }
 
 .section-title {
-    font-size: 38px;
+    font-size: 36px;
     font-weight: 900;
-    margin-bottom: 18px;
+    color: #fff;
+    margin-bottom: 20px;
 }
 
 .lore-box {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    padding: 24px;
-    border-radius: 24px;
+    background: #0d0d0d;
+    border: 1px solid #222;
+    padding: 28px;
+    border-radius: 20px;
     line-height: 1.9;
-    color: #d1d1d1;
+    color: #ccc;
     font-size: 15px;
+    margin-bottom: 16px;
 }
 
 .token-box {
-    margin-top: 24px;
-    padding: 18px;
-    border-radius: 18px;
-    background: #000;
-    border: 1px dashed rgba(255,255,255,0.15);
-    /* FIXED: scroll horizontal untuk contract address panjang */
-    overflow-x: auto;
+    padding: 18px 20px;
+    border-radius: 14px;
+    background: #0a0a0a;
+    border: 1px dashed #333;
     font-size: 13px;
-    color: #9e9e9e;
-    /* FIXED: word break untuk mobile */
+    color: #666;
+    font-family: 'Courier New', Courier, monospace;
     word-break: break-all;
     overflow-wrap: anywhere;
-    /* FIXED: font monospace supaya address rapi */
-    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.6;
 }
 
-/* ==================== FOOTER ==================== */
+.token-label {
+    font-family: 'Inter', sans-serif;
+    color: #444;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+}
+
+/* ===== FOOTER ===== */
 .footer {
-    padding: 50px 20px;
+    border-top: 1px solid #111;
+    padding: 40px 20px;
     text-align: center;
-    color: #888;
+    color: #444;
     font-size: 13px;
-    position: relative;
-    z-index: 1;
 }
 
-/* ==================== RESPONSIVE ==================== */
-
-/* Tablet */
-@media (max-width: 900px) {
-    h1 {
-        font-size: 52px;
-    }
-}
-
-/* Mobile */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     h1 {
-        font-size: 42px;
-        line-height: 1;
+        font-size: 48px;
         letter-spacing: -2px;
     }
 
-    .desc {
-        font-size: 15px;
-    }
-
-    /* FIXED: stats jadi 1 kolom di mobile */
     .stats {
-        -webkit-flex-direction: column;
-        flex-direction: column;
-    }
-
-    .stat {
-        -webkit-flex: none;
-        flex: none;
-        width: 100%;
+        grid-template-columns: 1fr;
     }
 
     .cta {
-        -webkit-flex-direction: column;
         flex-direction: column;
+        align-items: stretch;
     }
 
-    .buy-btn,
-    .secondary-btn {
+    .btn-primary,
+    .btn-secondary {
         width: 100%;
-        -webkit-flex: none;
-        flex: none;
     }
 
     .nav {
-        -webkit-justify-content: center;
         justify-content: center;
     }
 
     .nav-right {
-        -webkit-justify-content: center;
         justify-content: center;
-    }
-
-    .hero-card {
-        padding: 20px 16px;
     }
 
     .section-title {
         font-size: 28px;
     }
-
-    .glow {
-        display: none; /* Hemat performa di mobile */
-    }
 }
 
-/* Small mobile (iPhone SE, dll) */
-@media (max-width: 375px) {
+@media (max-width: 400px) {
     h1 {
-        font-size: 34px;
+        font-size: 38px;
         letter-spacing: -1px;
-    }
-
-    .container {
-        padding: 12px;
-    }
-
-    .badge {
-        font-size: 11px;
     }
 
     .desc {
@@ -432,15 +306,10 @@ h1 {
     }
 }
 
-/* Safe area untuk iPhone X+ (notch/island) */
 @supports (padding: max(0px)) {
     .container {
         padding-left: max(20px, env(safe-area-inset-left));
         padding-right: max(20px, env(safe-area-inset-right));
-    }
-
-    .footer {
-        padding-bottom: max(50px, env(safe-area-inset-bottom));
     }
 }
 
@@ -448,178 +317,96 @@ h1 {
 </head>
 <body>
 
-
 <div class="container">
 
-    <!-- NAV -->
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-
-        <div class="logo">
-            mylast1dollars.xyz
-        </div>
-
+    <nav class="nav">
+        <div class="logo">mylast1dollars.xyz</div>
         <div class="nav-right">
-
             <a href="https://dexscreener.com/solana/9iTrgxt2YjubLzhJpkNB5rHRTPXuFBsCeQyK1uRdBk7z"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="nav-btn">
-               Chart
-            </a>
-
+               target="_blank" rel="noopener noreferrer" class="nav-btn">Chart</a>
             <a href="https://t.me/mylast1dollars"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="nav-btn">
-               DEX
-            </a>
-
-            <button class="nav-btn"
-                    type="button"
-                    onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
-                Docs
-            </button>
-
+               target="_blank" rel="noopener noreferrer" class="nav-btn">DEX</a>
+            <button class="nav-btn" type="button"
+                    onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Docs</button>
         </div>
-
     </nav>
 
-    <!-- HERO -->
-    <section class="hero" aria-label="Hero section">
+    <section class="hero">
 
-        <div class="glow" aria-hidden="true"></div>
+        <div class="badge">A covenant born from dust • 2026</div>
 
-        <div class="hero-card">
+        <h1>MY LAST<br>1 DOLLARS</h1>
 
-            <div class="badge">
-                A covenant born from dust • 2026
+        <p class="desc">
+            A prophecy has been born in dust. Slowly, and then all at once.
+            The encompassing development of this story unfolds between
+            <span class="highlight">betrayal and resurrection</span>,
+            between eternity, and a time when no time passed at all.
+            <br><br>
+            The gift of this token represents a new covenant,
+            passed onto the world through a homeless dev on 2026.
+        </p>
+
+        <div class="cta">
+            <a href="https://t.me/mylast1dollars" target="_blank" rel="noopener noreferrer"
+               class="btn-primary">BUY TOKEN</a>
+            <a href="https://t.me/mylast1dollars" target="_blank" rel="noopener noreferrer"
+               class="btn-secondary">JOIN TELEGRAM</a>
+            <a href="https://x.com/yourtwitter" target="_blank" rel="noopener noreferrer"
+               class="btn-secondary">VIEW X</a>
+            <a href="https://dexscreener.com/solana/9iTrgxt2YjubLzhJpkNB5rHRTPXuFBsCeQyK1uRdBk7z"
+               target="_blank" rel="noopener noreferrer"
+               class="btn-secondary">DEX</a>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <h2>∞</h2>
+                <p>Faith over fear</p>
             </div>
-
-            <h1>
-                MY LAST<br>
-                1 DOLLARS
-            </h1>
-
-            <p class="desc">
-                A prophecy has been born in dust.
-                Slowly, and then all at once.
-                The encompassing development of this story unfolds between
-                <span class="highlight">betrayal and resurrection</span>,
-                between eternity,
-                and a time when no time passed at all.
-                <br><br>
-
-                The gift of this token represents a new covenant,
-                passed onto the world through a homeless dev on 2026.
-            </p>
-
-            <!-- BUTTONS -->
-            <div class="cta">
-
-                <a href="https://t.me/mylast1dollars"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="buy-btn">
-                   BUY TOKEN
-                </a>
-
-                <a href="https://t.me/mylast1dollars"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="secondary-btn">
-                   JOIN TELEGRAM
-                </a>
-
-                <a href="https://x.com/yourtwitter"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="secondary-btn">
-                   VIEW X
-                </a>
-
-                <a href="https://dexscreener.com/solana/9iTrgxt2YjubLzhJpkNB5rHRTPXuFBsCeQyK1uRdBk7z"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="secondary-btn">
-                   DEX
-                </a>
-
+            <div class="stat">
+                <h2>2026</h2>
+                <p>The beginning</p>
             </div>
-
-            <!-- STATS -->
-            <div class="stats">
-
-                <div class="stat">
-                    <h2>∞</h2>
-                    <p>Faith over fear</p>
-                </div>
-
-                <div class="stat">
-                    <h2>2026</h2>
-                    <p>The beginning</p>
-                </div>
-
-                <div class="stat">
-                    <h2>1$</h2>
-                    <p>The last covenant</p>
-                </div>
-
+            <div class="stat">
+                <h2>1$</h2>
+                <p>The last covenant</p>
             </div>
-
         </div>
 
     </section>
 
-    <!-- ABOUT -->
-    <section class="section" id="about" aria-label="About section">
+    <hr>
 
-        <h2 class="section-title">
-            The Prophecy
-        </h2>
+    <section class="section" id="about">
+
+        <h2 class="section-title">The Prophecy</h2>
 
         <div class="lore-box">
-
             They laughed at the final dollar.
             <br><br>
-
-            They called it worthless.
-            Forgotten.
-            Dead.
-
-            But value was never written by kings,
-            institutions,
-            or the market itself.
-
-            It was written by believers standing in ruins
-            while the world burned around them.
+            They called it worthless. Forgotten. Dead.
+            But value was never written by kings, institutions, or the market itself.
+            It was written by believers standing in ruins while the world burned around them.
             <br><br>
-
-            This is not merely a token.
-            This is remembrance.
-            A relic passed from one soul to another
-            in the final age of noise.
+            This is not merely a token. This is remembrance.
+            A relic passed from one soul to another in the final age of noise.
             <br><br>
-
-            When all timelines collapse into silence,
-            the covenant remains.
-
+            When all timelines collapse into silence, the covenant remains.
         </div>
 
         <div class="token-box">
-            Contract: DPmf2J8Lz8rXkyv9d5vTMtQh18dVczVaAum8KRUSiDsB
+            <div class="token-label">Contract Address</div>
+            DPmf2J8Lz8rXkyv9d5vTMtQh18dVczVaAum8KRUSiDsB
         </div>
 
     </section>
 
 </div>
 
-<!-- FOOTER -->
 <footer class="footer">
     © 2026 mylast1dollars.xyz — born from dust.
 </footer>
-
-
-
 
 </body>
 </html>
